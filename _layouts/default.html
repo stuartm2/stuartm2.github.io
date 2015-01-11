@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ page.title }}</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/assets/site.css">
+    </head>
+    <body>
+        <div class="page">
+            <header>
+                <h1>stuartm</h1>
+            </header>
+
+            {% include nav.html %}
+
+            <article>
+                <h2>{{ page.title }}</h2>
+
+                {{ content }}
+            </article>
+
+            {% include footer.html %}
+        </page>
+    </body>
+</html>

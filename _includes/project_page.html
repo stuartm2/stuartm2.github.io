@@ -1,0 +1,26 @@
+
+<h3>Recent posts</h3>
+
+{% for post in site.tags[tag] %}
+    {% if forloop.index <= 5 %}
+        <h4><a href="{{ post.url }}">{{ post.title }} &raquo;</a></h4>
+
+        <p>{{ post.excerpt }}</p>
+
+        <p class="meta">Posted on {{ post.date | date: "%A, %-d %B %Y" }}</p>
+    {% elsif forloop.index == 6 %}
+        <hr>
+
+        <h3>Older posts</h3>
+
+        <ul>
+            <li><a href="{{ post.url }}">{{ post.title }}</a> <span class="meta">Posted on {{ post.date | date: "%A, %-d %B %Y" }}</span></li>
+    {% else %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a> <span class="meta">Posted on {{ post.date | date: "%A, %-d %B %Y" }}</span></li>
+    {% endif %}
+    {% if forloop.last && forloop.index > 5 %}
+        </ul>
+    {% endif %}
+{% else %}
+    <p>Sorry, there are no posts in this project at the moment.</p>
+{% endfor %}

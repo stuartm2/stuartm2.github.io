@@ -1,0 +1,3 @@
+
+paginate: 10
+paginate_path: "journal/page:num/"

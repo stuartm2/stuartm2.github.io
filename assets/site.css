@@ -1,0 +1,299 @@
+
+* {
+    font-family: "helvetica neue";
+}
+
+body {
+    background: #DDD;
+    color: #333;
+    font-size: 90%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 0 10px;
+}
+
+div.page {
+    background: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 4px #333;
+    margin-bottom: 35px;
+}
+
+header {
+    background: orange;
+    color: #FFF;
+    line-height: 40px;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav {
+    background: #EEE;
+    padding: 4px 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    color: #333;
+    display: inline-block;
+    margin: 0;
+    padding: 3px 8px 4px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background: #CCC;
+    color: white;
+}
+
+div.page > article {
+    padding: 0 18px 20px;
+}
+
+footer {
+    background: #FDFDFD; /* Old browsers */
+    background: linear-gradient(to bottom, #FFF 0%, #FFF 50%, #FDFDFD 70%, #DDD 95%, #888 100%); /* W3C */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    clear: both;
+    font-size: 80%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* ------------------------------------- */
+
+
+.post-foot {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.post-date {
+    color: #666;
+    font-size: 90%;
+    font-style: italic;
+}
+
+
+/* ------------------------------------- */
+
+
+.meta {
+    color: #666;
+    font-size: 85%;
+}
+
+
+/* ------------------------------------- */
+
+
+.pager_summary {
+    background: #FAFAFA;
+    border-radius: 4px;
+    font-size: 90%;
+    line-height: 1.3em;
+    padding: 5px 5px 5px 10px;
+}
+
+.pager_summary .pager_links {
+    color: #CCC;
+    display: inline-block;
+    float: right;
+}
+
+.pager_summary .pager_links a,
+.pager_summary .pager_links span {
+    background-repeat: no-repeat;
+    border-right: 1px solid #DDD;
+    display: inline-block;
+    line-height: 1.3em;
+    margin: -5px 0 -5px -4px;
+    padding: 5px 8px;
+    text-decoration: none;
+}
+
+.pager_summary .pager_links a:last-child,
+.pager_summary .pager_links span:last-child {
+    border-right: 0;
+}
+
+.pager_summary .pager_links a {
+    color: #333;
+}
+
+.pager_summary .pager_links a:hover {
+    background-color: #CCC;
+}
+
+.pager_summary .pager_links .first {
+    background-image: url(first.png);
+    background-position: center left;
+    padding-left: 16px;
+}
+
+.pager_summary .pager_links span.first {
+    background-image: url(first_dis.png);
+}
+
+.pager_summary .pager_links .prev {
+    background-image: url(prev.png);
+    background-position: center left;
+    padding-left: 16px;
+}
+
+.pager_summary .pager_links span.prev {
+    background-image: url(prev_dis.png);
+}
+
+.pager_summary .pager_links .next {
+    background-image: url(next.png);
+    background-position: center right;
+    padding-right: 16px;
+}
+
+.pager_summary .pager_links span.next {
+    background-image: url(next_dis.png);
+}
+
+.pager_summary .pager_links .last {
+    background-image: url(last.png);
+    background-position: center right;
+    padding-right: 16px;
+}
+
+.pager_summary .pager_links span.last {
+    background-image: url(last_dis.png);
+}
+
+.pager {
+    text-align: center;
+}
+
+
+/* ------------------------------------- */
+
+
+.wrapper {
+    clear: both;
+    display: table;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.block {
+    display: table-cell;
+    width: 50%;
+}
+
+.block .content {
+    background: #FEFEFE;
+    box-shadow: 0 1px 2px #AAA;
+    margin-right: 30px;
+    padding: 10px;
+}
+
+.block:last-child .content {
+    margin-right: 0;
+}
+
+.block h3 {
+    background: #EEE;
+    margin: -10px -10px 0px;
+    padding: 10px;
+}
+
+.block.project .content {
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 250px;
+}
+
+.block.project .content h3 {
+    background: rgba(238, 238, 238, 0.6);
+}
+
+.block.project .content h3 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.block.project .content h3 a:hover {
+    color: orange;
+    text-shadow: 0 0 3px #333;
+}
+
+
+/* ------------------------------------- */
+
+
+.timeline {
+    background: #EEE;
+    height: 80px;
+}
+
+
+/* ------------------------------------- */
+
+
+.carousel {
+    background: grey;
+    height: 450px;
+    margin: 30px auto 40px;
+    width: 600px;
+}
+
+
+/* ------------------------------------- */
+
+
+h1 {
+    font-size: 150%;
+}
+
+h2 {
+    font-size: 180%;
+    text-align: center;
+}
+
+h3 {
+    font-size: 110%;
+}
+
+p img,
+iframe {
+    box-shadow: 0 1px 4px #333;
+    display: block;
+    margin: 30px auto 40px;
+}
+
+pre {
+    padding-left: 20px;
+}
+
+code {
+    font-family: monospace;
+}
+
+iframe {
+    box-shadow: 0 1px 4px #333;
+    display: block;
+    margin: 30px auto 40px;
+}
