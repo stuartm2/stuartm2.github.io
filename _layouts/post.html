@@ -6,13 +6,25 @@
         <link rel="stylesheet" type="text/css" href="/assets/site.css">
         <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
         <script>
-        $(document).ready(function () {});
-            $('img').load(function () {
-                $('img').click(function () {
-                    location.open();
+
+        $(document).ready(function () {
+            $('img')
+                .each(function () {
+                    if ($(this).attr('src').indexOf('.tn.') >= 0) {
+                        $(this).addClass('zoomable');
+                    }
+                })
+                .click(function () {
+                    var src = $(this).attr('src');
+                    var tnIndex = src.indexOf('.tn.');
+
+                    if (tnIndex >= 0) {
+                        var src = src.slice(0, tnIndex) + src.slice(tnIndex + 3);
+                        window.open(src);
+                    }
                 });
-            });
         });
+
         </script>
     </head>
     <body>
