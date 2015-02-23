@@ -244,6 +244,31 @@ footer {
 /* ------------------------------------- */
 
 
+.recent_item {
+    clear: left;
+}
+
+.recent_item h4 {
+    margin-left: 135px;
+}
+
+.recent_item p:not(.img) {
+    margin-left: 135px;
+}
+
+.recent_item p.img {
+    float: left;
+    margin: -33px 15px 10px 0;
+}
+
+.recent_item p.img img {
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------- */
+
+
 .timeline {
     background: #EEE;
     height: 80px;
