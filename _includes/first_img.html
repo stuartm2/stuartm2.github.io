@@ -1,0 +1,14 @@
+
+{% assign foundImage = 0 %}
+{% assign images = post.content | split:"<img " %}
+{% for image in images %}
+    {% assign imageSrcAttr = image | truncate:3,'' %}
+    {% if imageSrcAttr == 'src' %}
+        {% if foundImage == 0 %}
+            {% assign html = image | split:">" | first %}
+            <p class="img"><img {{ html }}{% if shrink %} width="120"{% endif %}></p>
+            {% assign foundImage = 1 %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
