@@ -14,7 +14,10 @@ title: Journal
         {% endif %}
     {% endfor %}
 
-    {% if first_post.date | date: "%Y" == last_post.date | date: "%Y" %}
+    {% assign first_y=first_post.date | date: "%Y" %}
+    {% assign last_y=last_post.date | date: "%Y" %}
+
+    {% if first_y == last_y %}
         {{ first_post.date | date: "%-d"}}
 
         {% if first_post.date | date: "%m" != last_post.date | date: "%m" %}
