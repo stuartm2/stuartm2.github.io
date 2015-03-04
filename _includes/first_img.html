@@ -6,7 +6,7 @@
     {% if imageSrcAttr == 'src' %}
         {% if foundImage == 0 %}
             {% assign html = image | split:">" | first %}
-            <p class="img"><img {{ html }}{% if shrink %} width="120"{% endif %}></p>
+            <p class="img"><img {{ html }}{% if shrink %} width="240"{% endif %} class="img-responsive img-thumbnail"></p>
             {% assign foundImage = 1 %}
         {% endif %}
     {% endif %}

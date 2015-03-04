@@ -1,95 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>{{ page.title }}</title>
-        <meta charset="UTF-8">
-        <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-        <link rel="stylesheet" type="text/css" href="/assets/site.css">
-        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script>
-
-        $(document).ready(function () {
-            $('img')
-                .each(function () {
-                    if ($(this).attr('src').indexOf('.tn.') >= 0) {
-                        $(this).addClass('zoomable');
-                    }
-                })
-                .click(function () {
-                    var src = $(this).attr('src');
-                    var tnIndex = src.indexOf('.tn.');
-
-                    if (tnIndex >= 0) {
-                        var src = src.slice(0, tnIndex) + src.slice(tnIndex + 3);
-                        window.open(src);
-                    }
-                });
-        });
-
-        </script>
+        {% include head_common.html %}
     </head>
-    <body>
-        <div class="page">
-            <header>
-                <h1>stuartm</h1>
-            </header>
+    <body role="document">
+        {% include nav.html %}
 
-            {% include nav.html %}
-
-            <article>
-                <h2>{{ page.title }}</h2>
-
-                <div class="pager_summary">
-                    Post
-                    {% for post in site.posts %}
-                        {% if forloop.first %}
-                            {% assign last_post=post %}
-                        {% elsif forloop.last %}
-                            {% assign first_post=post %}
-                        {% endif %}
-
-                        {% if post.id == page.id %}
-                            {{ forloop.rindex }}
-                        {% endif %}
-                    {% endfor %}
-                    of {{ site.posts.size }}
-                    -
-                    {{ page.date | date: "%A, %-d %B %Y" }}
-
-                    <span class="pager_links">
-                        {% assign first_link="Oldest" %}
-                        {% assign prev_link="Prev" %}
-                        {% assign next_link="Next" %}
-                        {% assign last_link="Newest" %}
-
-                        {% if page.previous %}
-                            <a href="{{ first_post.url }}" title="First post: {{ first_post.title }}" class="first">{{ first_link }}</a>
-                            <a href="{{ page.previous.url }}" title="Previous post: {{ page.previous.title }}" class="prev">{{ prev_link }}</a>
-                        {% else %}
-                            <span class="first">{{ first_link }}</span>
-                            <span class="prev">{{ prev_link }}</span>
-                        {% endif %}
-
-                        {% if page.next %}
-                            <a href="{{ page.next.url }}" title="Next post: {{ page.next.title }}" class="next">{{ next_link }}</a>
-                            <a href="{{ last_post.url }}" title="Last post: {{ last_post.title }}" class="last">{{ last_link }}</a>
-                        {% else %}
-                            <span class="next">{{ next_link }}</span>
-                            <span class="last">{{ last_link }}</span>
-                        {% endif %}
-                    </span>
+        <div class="container post" role="main">
+            <div style="background: transparent url(/images/{{ page.tags }}/cover.jpg) center center no-repeat; background-size: cover">
+                <div class="container">
+                    <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
+                        {% include jumbo-content-{{page.tags}}.html %}
+                    </div>
                 </div>
+            </div>
 
-                {{ content }}
+            <ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
+                <li><a href="/">Home</a></li>
+                <li><a href="/projects/{{ page.tags }}.html">{{ title }}</a></li>
+                <li>{{ page.title }}</li>
+            </ol>
 
-                <p class="pager">
-                    {% if page.next %}
-                        Next: <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+            <div class="page-heading">
+                <h1>{{ page.title }}</h1>
+            </div>
+
+            {{ content }}
+
+            <nav>
+                <ul class="pager">
+                    {% if page.previous %}
+                        <li class="previous"><a href="{{ page.previous.url }}"><span class="glyphicon glyphicon-chevron-left"></span> Previous: {{ page.previous.title }}</a></li>
                     {% endif %}
-                </p>
-            </article>
+                    {% if page.next %}
+                        <li class="next"><a href="{{ page.next.url }}">Next: {{ page.next.title }} <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                    {% endif %}
+                </ul>
+            </nav>
 
             {% include footer.html %}
-        </page>
+        </div>
     </body>
 </html>

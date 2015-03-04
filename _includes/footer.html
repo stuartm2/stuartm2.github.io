@@ -1,4 +1,34 @@
 
-            <footer>
-                Copyright &copy; Stuart Metcalfe 2014
-            </footer>
+<footer style="padding: 20px 0 30px; text-align: center;">
+    <p>Copyright &copy; Stuart Metcalfe 2015</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>
+
+$(document).ready(function () {
+    $('.post img')
+        .each(function () {
+            if ($(this).attr('src').indexOf('.tn.') >= 0) {
+                $(this)
+                    .addClass('zoomable img-responsive img-rounded')
+                    .css({
+                        'margin-left': 'auto',
+                        'margin-right': 'auto'
+                    });
+            }
+        })
+        .click(function () {
+            var src = $(this).attr('src');
+            var tnIndex = src.indexOf('.tn.');
+
+            if (tnIndex >= 0) {
+                var src = src.slice(0, tnIndex) + src.slice(tnIndex + 3);
+                window.open(src);
+            }
+        });
+});
+
+</script>
