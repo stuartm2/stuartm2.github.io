@@ -3,15 +3,22 @@ layout: default
 title: "Projects"
 ---
 
-<div class="wrapper">
-    <div class="block project">
-        <div class="content" style="background-image: url(../images/red-rover/cover.jpg)">
-            <h3><a href="projects/red-rover.html">Red Land Rover &raquo;</a></h3>
+<div style="background: transparent url(/images/red-rover/cover.jpg) center center no-repeat; background-size: cover">
+    <div class="container">
+        <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
+            {% include jumbo-content-red-rover.html %}
+            <p><a href="projects/red-rover.html" class="btn btn-primary" role="button">Explore Project</a></p>
         </div>
     </div>
-    <div class="block project">
-        <div class="content" style="background-image: url(../images/prusa-i2/P1060456.tn.jpg)">
-            <h3><a href="projects/prusa-i2.html">Reprap Prusa i2 &raquo;</a></h3>
+</div>
+
+<br>
+
+<div style="background: transparent url(/images/prusa-i2/cover.jpg) center center no-repeat; background-size: cover">
+    <div class="container">
+        <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
+            {% include jumbo-content-prusa-i2.html %}
+            <p><a href="projects/prusa-i2.html" class="btn btn-primary" role="button">Explore Project</a></p>
         </div>
     </div>
 </div>

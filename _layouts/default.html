@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>{{ page.title }}</title>
-        <meta charset="UTF-8">
-        <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
-        <link rel="stylesheet" type="text/css" href="/assets/site.css">
+        {% include head_common.html %}
     </head>
-    <body>
-        <div class="page">
-            <header>
-                <h1>stuartm</h1>
-            </header>
+    <body role="document">
+        {% include nav.html %}
 
-            {% include nav.html %}
-
-            <article>
-                <h2>{{ page.title }}</h2>
-
-                {{ content }}
-            </article>
+        <div class="container" role="main">
+            {{ content }}
 
             {% include footer.html %}
-        </page>
+        </div>
     </body>
 </html>

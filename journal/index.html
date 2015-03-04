@@ -3,82 +3,63 @@ layout: default
 title: Journal
 ---
 
-{% assign to_posts = paginator.page | times:paginator.per_page %}
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-md-1"><br></div>
+        <div class="col-md-10">
+            {% assign month="" %}
+            <ul class="media-list timeline">
+            {% for post in paginator.posts %}
+                {% assign tmp=post.date|date:"%Y-%m" %}
+                {% if month != tmp %}
+                    <li style="margin: 40px 0 25px;"><h3><span class="label label-default" style="font-size: 65%">{{ post.date|date:"%B %Y" }}</span></h3></li>
+                    {% assign month=tmp %}
+                {% endif %}
+                <li class="media" style="margin: 10px 0 15px 25px">
+                    <div class="media-left media-middle">
+                        <a href="{{ post.url }}">
+                            {% assign foundImage = 0 %}
+                            {% assign images = post.content | split:"<img " %}
+                            {% for image in images %}
+                                {% assign imageSrcAttr = image | truncate:3,'' %}
+                                {% if imageSrcAttr == 'src' %}
+                                    {% if foundImage == 0 %}
+                                        {% assign html = image | split:">" | first %}
+                                        <div style="border-radius:4px; width:64px; height:64px; overflow:hidden"><img class="media-object" {{ html }} width="100"></div>
+                                        {% assign foundImage = 1 %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
 
-<div class="pager_summary">
-    {% for post in paginator.posts %}
-        {% if forloop.first %}
-            {% assign last_post=post %}
-        {% elsif forloop.last %}
-            {% assign first_post=post %}
-        {% endif %}
-    {% endfor %}
-
-    {% assign first_y=first_post.date | date: "%Y" %}
-    {% assign last_y=last_post.date | date: "%Y" %}
-
-    {% if first_y == last_y %}
-        {{ first_post.date | date: "%-d"}}
-
-        {% if first_post.date | date: "%m" != last_post.date | date: "%m" %}
-            {{ first_post.date | date: "%B" }}
-        {% endif %}
-
-        to {{ last_post.date | date: "%-d %B %Y" }}
-    {% else %}
-        {{ first_post.date | date: "%-d %B %Y" }}
-        to {{ last_post.date | date: "%-d %B %Y" }}
-    {% endif %}
-
-    ({{ paginator.posts | size }} posts)
-
-    <span class="pager_links">
-        {% assign first_link = "Oldest" %}
-        {% assign prev_link = "Prev" %}
-        {% assign next_link = "Next" %}
-        {% assign last_link = "Newest" %}
-
-        {% if paginator.page < paginator.total_pages %}
-            <a href="/{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.total_pages }}" class="first">{{ first_link }}</a>
-        {% else %}
-            <span class="first">{{ first_link }}</span>
-        {% endif %}
-
-        {% if paginator.next_page %}
-            <a href="/{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', paginator.next_page }}" class="prev">{{ prev_link }}</a>
-        {% else %}
-            <span class="prev">{{ prev_link }}</span>
-        {% endif %}
-
-        {% if paginator.page == 2 %}
-            <a href="/journal/" class="next">{{ next_link }}</a>
-        {% elsif paginator.page > 2 %}
-            <a href="/journal/page{{ paginator.previous_page}}" class="next">{{ next_link }}</a>
-        {% else %}
-            <span class="next">{{ next_link }}</span>
-        {% endif %}
-
-        {% if paginator.page > 1 %}
-            <a href="/journal/" class="last">{{ last_link }}</a>
-        {% else %}
-            <span class="last">{{ last_link }}</span>
-        {% endif %}
-    </span>
+                            {% if foundImage == 0 %}
+                                <div style="background:#CCC; border-radius:4px; height:64px; width:64px"></div>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <p>
+                            <a href="{{ post.url }}"><b>{{ post.title }}</b></a>
+                            <br>
+                            {{ post.excerpt|strip_html|truncate:150 }}
+                            <br>
+                            <small style="color: grey">Posted in <a href="/projects/{{ post.tags }}.html}}">{{ post.tags }}</a> on {{ post.date|date:"%d %B, %Y" }}</small>
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 
-{% for post in paginator.posts %}
-    <section class="summary">
-        <h3><a href="{{ post.url }}">{{ post.title }} &raquo;</a></h3>
-
-        {% assign shrink="true" %}
-        {% include first_img.html %}
-
-        {{ post.excerpt }}
-
-        <p class="meta">
-            Posted on: {{ post.date | date: "%A, %-d %B %Y" }}
-            <br>
-            Project: {{ post.tags }}
-        </p>
-    </section>
-{% endfor %}
+<nav>
+    <ul class="pager">
+        <li>{{ paginator.previous }}</li>
+        <li class="previous {% if paginator.page == paginator.total_pages %} disabled{% endif %}">
+            <a href="{{ paginator.next_page_path }}"><span aria-hidden="true">&larr;</span> Older</a>
+        </li>
+        <li class="next{% if paginator.page == 1 %} disabled{% endif %}">
+            <a href="{{ paginator.previous_page_path }}">Newer <span aria-hidden="true">&rarr;</span></a>
+        </li>
+    </ul>
+</nav>

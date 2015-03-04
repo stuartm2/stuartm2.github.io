@@ -1,0 +1,62 @@
+
+<div style="background: transparent url(/images/{{ tag }}/cover.jpg) center center no-repeat; background-size: cover">
+    <div class="container">
+        <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
+            {% include jumbo-content-{{ tag }}.html %}
+        </div>
+    </div>
+</div>
+
+<ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
+    <li><a href="/">Home</a></li>
+    <li>{{ title }}</li>
+</ol>
+
+<div class="container" role="main">
+    <div class="row">
+        <div class="col-md-1"><br></div>
+        <div class="col-md-10">
+            {% assign month="" %}
+            <ul class="media-list timeline">
+            {% for post in site.tags[tag] %}
+                {% assign tmp=post.date|date:"%Y-%m" %}
+                {% if month != tmp %}
+                    <li style="margin: 40px 0 25px;"><h3><span class="label label-default" style="font-size: 65%">{{ post.date|date:"%B %Y" }}</span></h3></li>
+                    {% assign month=tmp %}
+                {% endif %}
+                <li class="media" style="margin: 10px 0 15px 25px">
+                    <div class="media-left media-middle">
+                        <a href="{{ post.url }}">
+                            {% assign foundImage = 0 %}
+                            {% assign images = post.content | split:"<img " %}
+                            {% for image in images %}
+                                {% assign imageSrcAttr = image | truncate:3,'' %}
+                                {% if imageSrcAttr == 'src' %}
+                                    {% if foundImage == 0 %}
+                                        {% assign html = image | split:">" | first %}
+                                        <div style="border-radius:4px; width:64px; height:64px; overflow:hidden"><img class="media-object" {{ html }} width="100"></div>
+                                        {% assign foundImage = 1 %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if foundImage == 0 %}
+                                <div style="background:#CCC; border-radius:4px; height:64px; width:64px"></div>
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <p>
+                            <a href="{{ post.url }}"><b>{{ post.title }}</b></a>
+                            <br>
+                            {{ post.excerpt|strip_html|truncate:150 }}
+                            <br>
+                            <small style="color: grey">Posted on {{ post.date|date:"%d %B, %Y" }}</small>
+                        </p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
