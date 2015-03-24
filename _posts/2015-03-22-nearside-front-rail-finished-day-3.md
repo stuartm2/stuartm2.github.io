@@ -28,6 +28,6 @@ Now I'm moving on to the offside front rail.  Thankfully, after removing the old
 
 ![](/images/red-rover/P1070669.tn.JPG)
 
-I'll cut it back to good steel, weld in a plate and that should be it.  The bigger task is the repair to the front crossmember around the steering relay tunnel - it's going to require some precide cutting.
+I'll cut it back to good steel, weld in a plate and that should be it.  The bigger task is the repair to the front crossmember around the steering relay tunnel - it's going to require some precise cutting.
 
 ![](/images/red-rover/P1070671.tn.JPG)
