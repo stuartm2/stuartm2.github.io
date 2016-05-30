@@ -4,7 +4,7 @@ title: "New Spool Holder"
 tags: [kossel-mini]
 ---
 
-As I mentioned in [my initial Kossel post](say-hello-to-mr-kossel.html), the filament spool holder is a little tight and doesn't hold the spool securely during transit so I've been looking for a better alternative.  The choices for the Kossel essentially come down to horizontal top mount, vertical top mount, vertical side mount and external mount.  As I want to keep it self-contained and within a small footprint, the side and external options are out.
+As I mentioned in [my initial Kossel post]({% post_url 2016-05-22-say-hello-to-mr-kossel %}), the filament spool holder is a little tight and doesn't hold the spool securely during transit so I've been looking for a better alternative.  The choices for the Kossel essentially come down to horizontal top mount, vertical top mount, vertical side mount and external mount.  As I want to keep it self-contained and within a small footprint, the side and external options are out.
 
 I currently have a horizontal top mount which is probably the most compact layout and there are a number of designs on Thingiverse based on a central spool holder which would keep the current layout but with a secured spool.  However, I wondered if a vertical mount would provide a more direct route to the extruder.
 

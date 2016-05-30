@@ -6,7 +6,7 @@ tags: [kossel-mini]
 
 This is a retrospective post covering the past couple of months from choosing my new 3D printer to assembly and initial improvements.
 
-From my experiences with [the old Prusa](the-king-is-dead.html), I had a few key criteria:
+From my experiences with [the old Prusa]({% post_url 2016-05-22-the-king-is-dead %}), I had a few key criteria:
 
  1. __Ready-To-Build__ - When I built the Prusa, I got the parts from a variety of sources because there was no other option.  This was a time-consuming and error-prone process, especially as I wasn't familiar with the printer design and assembly.  As the Prusa stopped working again and I want to get a replacement up and running, a ready-built printer or a kit seems the easiest way to proceed.
  1. __Affordable__ - There's always a budget with any project.  As with most of my projects, the up-front budget for this is quite low but I am able to fund improvements over time.  Thankfully, there's a plethora of cheap options around these days.
