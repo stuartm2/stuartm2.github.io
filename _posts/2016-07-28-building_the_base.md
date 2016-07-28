@@ -14,6 +14,6 @@ Here's the bare frame and the frame with the board fitted:
 
 After that was done, fitting the CNC frame was trivial.  Here's where I've left it for the evening:
 
-![](/images/mpcnc/IMG_0089.tn.jpg)
+![](/images/mpcnc/IMG_0089.tn.JPG)
 
 The next step is wiring the electronics and my 400W router spindle should be arriving any day so it won't be long until I'm able to get this up and running.
