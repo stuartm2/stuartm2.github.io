@@ -12,7 +12,7 @@ Here's the bare frame and the frame with the board fitted:
 
 ![](/images/mpcnc/IMG_0088.tn.jpg)
 
-After that was done, fitting the CNC frame was trivial.  Here's where I've left it for the evening:
+After that was done, fitting the CNC frame was trivial.  The work area ended up having to be slightly narrower than I'd originally planned because the widest board I could buy was 610mm.  This meant some of the tubes needed to be shortened but the work area is still a perfectly adequate size.  Here's where I've left it for the evening:
 
 ![](/images/mpcnc/IMG_0089.tn.JPG)
 
