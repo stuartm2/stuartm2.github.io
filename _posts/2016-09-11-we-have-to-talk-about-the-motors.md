@@ -28,7 +28,7 @@ If I put the new 11x4.7 plastic props on with the 4S battery we go up again and 
 
 ![](/images/quadx450/ecalc5.png)
 
-And finally, if I find the ESCs can cope with the 11x4.7 props *and* I upgrade them to carbon items, ecalc estimates a over 21 minutes with all the measures in the green:
+And finally, if I find the ESCs can cope with the 11x4.7 props *and* I upgrade them to carbon items, ecalc estimates over 21 minutes with all the measures in the green:
 
 ![](/images/quadx450/ecalc6.png)
 
