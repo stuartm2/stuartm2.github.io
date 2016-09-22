@@ -12,7 +12,8 @@ def valid_ext(filename):
     filename = filename.lower()
 
     for ext in VALID_EXTS:
-        if filename.endswith(ext) and not filename.endswith('.tn' + ext):
+        if filename.endswith(ext) and not (filename.endswith('.tn' + ext) or
+                filename.endswith('_' + ext)):
             return True
 
     return False
