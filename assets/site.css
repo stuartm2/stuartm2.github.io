@@ -28,3 +28,10 @@ img.zoomable {
     cursor: pointer;
 }
 
+.panel h1 {
+    font-size: 24px;
+}
+
+.fh-wrap {
+    min-height: 100px;
+}
