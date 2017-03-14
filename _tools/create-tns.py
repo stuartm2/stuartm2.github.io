@@ -30,7 +30,7 @@ for img in images:
     tnimg.insert(-1, 'tn')
     tnimg = '.'.join(tnimg)
 
-    if not isfile(join(dirpath, tnimg)):
+    if not tnimg.startswith('cover.') and not isfile(join(dirpath, tnimg)):
         system('cp %s %s' % (join(dirpath, img), join(dirpath, tnimg)))
         system('sips -Z 600 %s' % join(dirpath, tnimg))
 
