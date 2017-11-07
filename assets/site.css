@@ -35,3 +35,23 @@ img.zoomable {
 .fh-wrap {
     min-height: 100px;
 }
+
+.boxout a,
+.boxout a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.boxout:hover {
+    background: #FBFBFB;
+}
+
+.boxout img {
+    margin: 15px 0 -10px;
+}
+
+.boxout small {
+    color: #888;
+    position: relative;
+    top: -0.75em;
+}
