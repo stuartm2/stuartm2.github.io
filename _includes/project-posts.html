@@ -1,0 +1,23 @@
+
+<br>
+
+<div class="row">
+{% assign i = 0 %}
+{% for post in site.tags[tag] %}
+    <div class="col-md-4 boxout">
+        <a href="{{ post.url }}">
+            <img src="/images/{{ tag }}/cover.{{ post.title | slugify }}.jpg" class="img-responsive">
+            <h3>{{ post.title | strip_tag_prefix: tag | truncate: 28 }}</h3>
+            <div>{{ post.date | date_to_long_string }}</div>
+        </a>
+    </div>
+    {% if i == '2' %}
+        {% assign i = 0 %}
+</div>
+<br>
+<div class="row">
+    {% else %}
+        {% capture i %}{{ i | plus: 1 }}{% endcapture %}
+    {% endif %}
+{% endfor %}
+</div>
