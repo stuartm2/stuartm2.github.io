@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
     <li><a href="/">Home</a></li>
-    <li>{{ title }}</li>
+    <li>{{ title | strip_tag_prefix: tag }}</li>
 </ol>
 
 {% if in_progress %}
