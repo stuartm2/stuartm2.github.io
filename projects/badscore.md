@@ -12,5 +12,3 @@ some or all of us to have forgotten what the scores were by the time we need
 them. Then there are those occasions where everyone thinks they remember what
 the score is, but we all come up with different numbers. Anyway, this seems like
 the kind of problem which could be solved with an Arduino ...
-
-{{ posts }}
