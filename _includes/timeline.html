@@ -36,7 +36,11 @@
                                 {% if imageSrcAttr == 'src' %}
                                     {% if foundImage == 0 %}
                                         {% assign html = image | split:">" | first %}
-                                        <div style="border-radius:4px; width:64px; height:64px; overflow:hidden"><img class="media-object" {{ html }} width="100"></div>
+                                        {% capture len %}{{ html | size | minus: 15 }}{% endcapture %}
+                                        {% assign src = html | slice:5,len %}
+                                        <div style="border-radius:4px; width:64px; height:64px; overflow:hidden">
+                                            <img class="media-object" src="{{ src }}" width="100">
+                                        </div>
                                         {% assign foundImage = 1 %}
                                     {% endif %}
                                 {% endif %}
