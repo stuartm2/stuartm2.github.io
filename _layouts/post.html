@@ -27,16 +27,83 @@
 
             {{ content }}
 
-            <nav>
-                <ul class="pager">
+            <hr>
+
+            <p><small style="color: grey">Posted on {{ page.date | date_to_long_string }}</small></p>
+
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
                     {% if page.previous %}
-                        <li class="previous"><a href="{{ page.previous.url }}"><span class="glyphicon glyphicon-chevron-left"></span> Previous: {{ page.previous.title | strip_tag_prefix: page.previous.tags }}</a></li>
+                        <a href="{{ page.previous.url }}" class="media">
+                            <div class="media-left">
+                                {% assign foundImage = 0 %}
+                                {% assign images = page.previous.content | split:"<img " %}
+                                {% for image in images %}
+                                    {% assign imageSrcAttr = image | truncate:3,'' %}
+                                    {% if imageSrcAttr == 'src' %}
+                                        {% if foundImage == 0 %}
+                                            {% assign html = image | split:">" | first %}
+                                            <div style="background:#CCC; width:64px; height:64px; overflow:hidden"><img class="media-object" {{ html }} width="100"></div>
+                                            {% assign foundImage = 1 %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if foundImage == 0 %}
+                                    <div style="background:#CCC; height:64px; width:64px"></div>
+                                {% endif %}
+                            </div>
+                            <div class="media-body">
+                                <big>Previous: {{ page.previous.title }}</big>
+                                <br>
+                                {% if site.data.projects[page.previous.tags.first].title %}
+                                    {{ site.data.projects[page.previous.tags.first].title }}
+                                {% else %}
+                                    {{ page.previous.tags.first }}
+                                {% endif %}
+                                <br>
+                                <small>{{ page.previous.date | date_to_long_string }}</small>
+                            </div>
+                        </a>
                     {% endif %}
+                </div>
+                <div class="col-sm-6">
                     {% if page.next %}
-                        <li class="next"><a href="{{ page.next.url }}">Next: {{ page.next.title | strip_tag_prefix: page.next.tags }} <span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        <a href="{{ page.next.url }}" class="media">
+                            <div class="media-body text-right">
+                                <big>Next: {{ page.next.title }}</big><br>
+                                {% if site.data.projects[page.next.tags.first].title %}
+                                    {{ site.data.projects[page.next.tags.first].title }}
+                                {% else %}
+                                    {{ page.next.tags.first }}
+                                {% endif %}
+                                <br>
+                                <small>{{ page.next.date | date_to_long_string }}</small>
+                            </div>
+                            <div class="media-right media-middle">
+                                {% assign foundImage = 0 %}
+                                {% assign images = page.next.content | split:"<img " %}
+                                {% for image in images %}
+                                    {% assign imageSrcAttr = image | truncate:3,'' %}
+                                    {% if imageSrcAttr == 'src' %}
+                                        {% if foundImage == 0 %}
+                                            {% assign html = image | split:">" | first %}
+                                            <div style="background:#CCC; width:64px; height:64px; overflow:hidden"><img class="media-object" {{ html }} width="100"></div>
+                                            {% assign foundImage = 1 %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if foundImage == 0 %}
+                                    <div style="background:#CCC; height:64px; width:64px"></div>
+                                {% endif %}
+                            </div>
+                        </a>
                     {% endif %}
-                </ul>
-            </nav>
+                </div>
+            </div>
 
             {% include footer.html %}
         </div>
