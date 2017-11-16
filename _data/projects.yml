@@ -4,7 +4,7 @@ allbot:
 badscore:
     title: "Badminton Scoreboard"
 
-compviz:
+compvis:
     title: "Computer Vision"
 
 hexapod:
