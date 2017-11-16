@@ -1,5 +1,5 @@
 
-{% assign project=site.data.projects[tag] %}
+{% assign project = site.data.projects[tag] %}
 
 <div style="background: transparent url(/images/{{ tag }}/cover.jpg) center center no-repeat; background-size: cover">
     <div class="container">
@@ -11,7 +11,7 @@
 
 <ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
     <li><a href="/">Home</a></li>
-    <li>{{ title }}</li>
+    <li>{{ project.title }}</li>
 </ol>
 
 <div class="container" role="main">
