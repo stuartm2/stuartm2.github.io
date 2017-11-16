@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Computer Vision"
+tag: quadx450
 ---
 
-{% assign tag="compvis" %}
 {% include timeline.html %}

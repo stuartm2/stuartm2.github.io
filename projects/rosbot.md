@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Mostly Printed CNC"
+tag: rosbot
 ---
 
-{% assign tag="mpcnc" %}
 {% include timeline.html %}

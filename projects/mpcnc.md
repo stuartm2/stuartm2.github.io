@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Allbot"
+tag: mpcnc
 ---
 
-{% assign tag="allbot" %}
 {% include timeline.html %}

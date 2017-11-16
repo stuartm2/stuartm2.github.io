@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% assign title=site.data.projects[page.tag].title %}
+        {% include head_common.html %}
+    </head>
+    <body role="document">
+        {% include nav.html %}
+
+        <div class="container" role="main">
+            {% include project-header.html %}
+
+            {{ content }}
+
+            {% include project-posts.html %}
+
+            {% if page.resources %}
+            <hr>
+            
+            <h2>Resources</h2>
+
+            <ul>
+            {% for link in page.resources %}
+                <li><a href="{{ link }}">{{ link }}</a></li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% include footer.html %}
+        </div>
+    </body>
+</html>

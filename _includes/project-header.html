@@ -1,7 +1,7 @@
 
-{% assign project = site.data.projects[tag] %}
+{% assign project = site.data.projects[page.tag] %}
 
-<div style="background: transparent url(/images/{{ tag }}/cover.jpg) center center no-repeat; background-size: cover">
+<div style="background: transparent url(/images/{{ page.tag }}/cover.jpg) center center no-repeat; background-size: cover">
     <div class="container">
         <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
             <h1>{{ project.title }}</h1>

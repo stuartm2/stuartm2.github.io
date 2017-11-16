@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Reprap Prusa i2"
+tag: hexapod
 ---
 
-{% assign tag="prusa-i2" %}
 {% include timeline.html %}

@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "Hexapod"
+tag: red-rover
 ---
 
-{% assign tag="hexapod" %}
 {% include timeline.html %}

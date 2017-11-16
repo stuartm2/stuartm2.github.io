@@ -1,7 +1,6 @@
 ---
 layout: default
-title: "X450 Quadcopter"
+tag: allbot
 ---
 
-{% assign tag="quadx450" %}
 {% include timeline.html %}
