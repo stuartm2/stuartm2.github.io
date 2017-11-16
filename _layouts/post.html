@@ -6,7 +6,8 @@
     <body role="document">
         {% include nav.html %}
 
-        {% assign project=site.data.projects[tag] %}
+        {% assign tag = page.tags.first %}
+        {% assign project = site.data.projects[tag] %}
 
         <div class="container post" role="main">
             <div style="background: transparent url(/images/{{ tag }}/cover.jpg) center center no-repeat; background-size: cover">
@@ -19,7 +20,7 @@
 
             <ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
                 <li><a href="/">Home</a></li>
-                <li><a href="/projects/{{ page.tags }}.html">{{ title }}</a></li>
+                <li><a href="/projects/{{ tag }}.html">{{ project.title }}</a></li>
                 <li>{{ page.title }}</li>
             </ol>
 
