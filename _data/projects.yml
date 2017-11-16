@@ -1,0 +1,41 @@
+allbot:
+    title: "Allbot"
+
+badscore:
+    title: "Badminton Scoreboard"
+
+compviz:
+    title: "Computer Vision"
+
+hexapod:
+    title: "Hexapod"
+
+kossel-mini:
+    title: "Kossel Mini"
+    archive: true
+
+mearm:
+    title: "MeArm Robotic Arm"
+
+mpcnc:
+    title: "Mostly Printed CNC"
+    archive: true
+
+prusa-i2:
+    title: "Reprap Prusa i2"
+    archive: true
+
+quadx450:
+    title: "X450 Quadcopter"
+
+random:
+    title: "Random Projects"
+
+red-rover:
+    title: "Land Rover Restoration"
+
+rosbot:
+    title: "ROSbot"
+
+tazclone:
+    title: "Mini TAZ6 Clone"

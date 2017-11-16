@@ -14,6 +14,10 @@ module Jekyll
 
             return title
         end
+
+        def keys(obj)
+            return obj.keys
+        end
     end
 end
 

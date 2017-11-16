@@ -6,91 +6,30 @@ title: "Projects"
 <h2 class="page-header">Projects</h2>
 
 <div class="row">
+{% assign i = 0 %}
+{% assign tags = site.tags | keys | reverse %}
+
+{% for tag in tags %}
+{% if site.data.projects[tag].archive != true %}
     <div class="col-md-4 boxout">
-        <a href="projects/mearm.html">
-            <img src="/images/mearm/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>MeArm Robotic Arm</h3>
-            <div><small>Last update: {{ site.tags['mearm'].first.date | date_to_long_string }}</small></div>
+        <a href="projects/{{ tag }}.html">
+            <img src="/images/{{ tag }}/cover.tn.jpg" height="200" class="img-responsive">
+            <h3>{{ site.data.projects[tag].title }}</h3>
+            <div><small>Last update: {{ site.tags[tag].first.date | date_to_long_string }}</small></div>
         </a>
     </div>
-        <div class="col-md-4 boxout">
-            <a href="projects/random.html">
-                <img src="/images/random/cover.tn.jpg" height="200" class="img-responsive">
-                <h3>Random Projects</h3>
-                <div><small>Last update: {{ site.tags['random'].first.date | date_to_long_string }}</small></div>
-            </a>
-        </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/tazclone.html">
-            <img src="/images/tazclone/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Mini TAZ6 Clone</h3>
-            <div><small>Last update: {{ site.tags['tazclone'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
+    {% if i == '2' %}
+        {% assign i = 0 %}
 </div>
 
 <br>
 
 <div class="row">
-    <div class="col-md-4 boxout">
-        <a href="projects/badscore.html">
-            <img src="/images/badscore/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Badminton Scoreboard</h3>
-            <div><small>Last update: {{ site.tags['badscore'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/compvis.html">
-            <img src="/images/compvis/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Computer Vision</h3>
-            <div><small>Last update: {{ site.tags['compvis'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/allbot.html">
-            <img src="/images/allbot/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Allbot</h3>
-            <div><small>Last update: {{ site.tags['allbot'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-</div>
-
-<br>
-
-<div class="row">
-    <div class="col-md-4 boxout">
-        <a href="projects/hexapod.html">
-            <img src="/images/hexapod/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Hexapod</h3>
-            <div><small>Last update: {{ site.tags['hexapod'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/quadx450.html">
-            <img src="/images/quadx450/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>X450 Quadcopter</h3>
-            <div><small>Last update: {{ site.tags['quadx450'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/rosbot.html">
-            <img src="/images/rosbot/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>ROSbot</h3>
-            <div><small>Last update: {{ site.tags['rosbot'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-</div>
-
-<br>
-
-<div class="row">
-    <div class="col-md-4 boxout">
-        <a href="projects/red-rover.html">
-            <img src="/images/red-rover/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Land Rover Restoration</h3>
-            <div><small>Last update: {{ site.tags['red-rover'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
+    {% else %}
+        {% capture i %}{{ i | plus: 1 }}{% endcapture %}
+    {% endif %}
+{% endif %}
+{% endfor %}
 </div>
 
 <br>
@@ -98,25 +37,28 @@ title: "Projects"
 <h2 class="page-header">Archive</h2>
 
 <div class="row">
+{% assign i = 0 %}
+{% assign tags = site.tags | keys | reverse %}
+
+{% for tag in tags %}
+{% if site.data.projects[tag].archive == true %}
     <div class="col-md-4 boxout">
-        <a href="projects/mpcnc.html">
-            <img src="/images/mpcnc/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Mostly Printed CNC</h3>
-            <div><small>Last update: {{ site.tags['mpcnc'].first.date | date_to_long_string }}</small></div>
+        <a href="projects/{{ tag }}.html">
+            <img src="/images/{{ tag }}/cover.tn.jpg" height="200" class="img-responsive">
+            <h3>{{ site.data.projects[tag].title }}</h3>
+            <div><small>Last update: {{ site.tags[tag].first.date | date_to_long_string }}</small></div>
         </a>
     </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/kossel-mini.html">
-            <img src="/images/kossel-mini/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Kossel Mini</h3>
-            <div><small>Last update: {{ site.tags['kossel-mini'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
-    <div class="col-md-4 boxout">
-        <a href="projects/prusa-i2.html">
-            <img src="/images/prusa-i2/cover.tn.jpg" height="200" class="img-responsive">
-            <h3>Reprap Prusa i2</h3>
-            <div><small>Last update: {{ site.tags['prusa-i2'].first.date | date_to_long_string }}</small></div>
-        </a>
-    </div>
+    {% if i == '2' %}
+        {% assign i = 0 %}
+</div>
+
+<br>
+
+<div class="row">
+    {% else %}
+        {% capture i %}{{ i | plus: 1 }}{% endcapture %}
+    {% endif %}
+{% endif %}
+{% endfor %}
 </div>
