@@ -3,6 +3,7 @@ allbot:
 
 badscore:
     title: "Badminton Scoreboard"
+    in_progress: true
 
 compvis:
     title: "Computer Vision"
