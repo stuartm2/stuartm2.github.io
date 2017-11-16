@@ -6,11 +6,13 @@
     <body role="document">
         {% include nav.html %}
 
+        {% assign project=site.data.projects[tag] %}
+
         <div class="container post" role="main">
-            <div style="background: transparent url(/images/{{ page.tags }}/cover.jpg) center center no-repeat; background-size: cover">
+            <div style="background: transparent url(/images/{{ tag }}/cover.jpg) center center no-repeat; background-size: cover">
                 <div class="container">
                     <div class="jumbotron" style="background: rgba(255, 255, 255, 0.5); margin: 0 -15px; padding-top:100px; padding-bottom:100px">
-                        {% include jumbo-content-{{page.tags}}.html %}
+                        <h1>{{ project.title }}</h1>
                     </div>
                 </div>
             </div>
@@ -18,11 +20,11 @@
             <ol class="breadcrumb" style="margin-top: -36px; border-radius: 0; background: rgba(255, 255, 255, 0.6)">
                 <li><a href="/">Home</a></li>
                 <li><a href="/projects/{{ page.tags }}.html">{{ title }}</a></li>
-                <li>{{ page.title | strip_tag_prefix: page.tags }}</li>
+                <li>{{ page.title }}</li>
             </ol>
 
             <div class="page-heading">
-                <h1>{{ page.title | strip_tag_prefix: page.tags[0] }}</h1>
+                <h1>{{ page.title }}</h1>
             </div>
 
             {{ content }}
@@ -73,7 +75,8 @@
                     {% if page.next %}
                         <a href="{{ page.next.url }}" class="media">
                             <div class="media-body text-right">
-                                <big>Next: {{ page.next.title }}</big><br>
+                                <big>Next: {{ page.next.title }}</big>
+                                <br>
                                 {% if site.data.projects[page.next.tags.first].title %}
                                     {{ site.data.projects[page.next.tags.first].title }}
                                 {% else %}
