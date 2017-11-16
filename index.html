@@ -3,16 +3,17 @@ layout: default
 title: "Projects"
 ---
 
+{% capture sorted_tags %}{% for t in site.tags %}{{ t[0] }}|{% endfor %}{% endcapture %}
+{% assign tags = sorted_tags | split: "|" | reverse %}
+
 <h2 class="page-header">Projects</h2>
 
 <div class="row">
 {% assign i = 0 %}
-{% capture sorted_tags %}{% for t in site.tags %}{{ t[0] }}|{% endfor %}{% endcapture %}
-{% assign tags = sorted_tags | split: "|" | reverse %}
 
 {% for tag in tags %}
     {% assign project=site.data.projects[tag] %}
-        {% if project.archive != true %}
+    {% if project.archive != true %}
     <div class="col-md-4 boxout">
         <a href="projects/{{ tag }}.html">
             <img src="/images/{{ tag }}/cover.tn.jpg" height="200" class="img-responsive">
@@ -20,8 +21,8 @@ title: "Projects"
             <div><small>Last update: {{ tag.first.date | date_to_long_string }}</small></div>
         </a>
     </div>
-            {% if i == '2' %}
-                {% assign i = 0 %}
+        {% if i == '2' %}
+            {% assign i = 0 %}
 </div>
 
 <br>
@@ -40,10 +41,10 @@ title: "Projects"
 
 <div class="row">
 {% assign i = 0 %}
-{% assign tags = site.tags | keys | reverse %}
 
 {% for tag in tags %}
-{% if site.data.projects[tag].archive == true %}
+    {% assign project=site.data.projects[tag] %}
+    {% if site.data.projects[tag].archive == true %}
     <div class="col-md-4 boxout">
         <a href="projects/{{ tag }}.html">
             <img src="/images/{{ tag }}/cover.tn.jpg" height="200" class="img-responsive">
