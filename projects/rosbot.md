@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: rosbot
 ---
-
-{% include timeline.html %}

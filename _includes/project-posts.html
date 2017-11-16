@@ -1,16 +1,28 @@
 
+{% assign posts=site.tags[page.tag] %}
+{% assign len=posts | size | minus: 1 %}
+{% assign post_ids=(0..len) %}
+{% assign post_ids=post_ids | reverse %}
+
 <br>
 
 <div class="row">
-{% assign i = 0 %}
-{% for post in site.tags[page.tag] %}
+{% assign i=0 %}
+
+{% for index in post_ids %}
+    {% assign post=posts[index] %}
+
     <div class="col-md-4 boxout">
         <a href="{{ post.url }}">
-            <img src="/images/{{ page.tag }}/cover.{{ post.title | slugify }}.jpg" class="img-responsive">
+            {% if post.cover_img %}
+                <img src="{{ post.cover_img }}" class="img-responsive">
+            {% else %}
+                <img src="/images/{{ page.tag }}/cover.{{ post.title | slugify }}.jpg" class="img-responsive">
+            {% endif %}
             {% if post.short_title %}
                 <h3>{{ post.short_title }}</h3>
             {% else %}
-                <h3>{{ post.title }}</h3>
+                <h3>{{ post.title | truncate: 20 }}</h3>
             {% endif %}
             <div>{{ post.date | date_to_long_string }}</div>
         </a>

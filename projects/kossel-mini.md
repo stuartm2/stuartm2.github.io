@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: kossel-mini
 ---
-
-{% include timeline.html %}

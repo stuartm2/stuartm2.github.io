@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: hexapod
 ---
-
-{% include timeline.html %}

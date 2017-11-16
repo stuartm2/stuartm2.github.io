@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: tazclone
 ---
-
-{% include timeline.html %}

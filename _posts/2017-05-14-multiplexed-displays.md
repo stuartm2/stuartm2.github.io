@@ -2,6 +2,7 @@
 layout: post
 title: "Multiplexed Displays"
 tags: [badscore]
+cover_img: /images/badscore/cover.prototype-update.jpg
 ---
 
 Following some experimentation, it seems that driving the 7-segment LEDs directly from the Arduino with multiplexing is the best way to get a bright and consistent display.  This uses a total of 11 pins and allows me to resolve the leading zeros issue but it leaves me with a decision to make over the base Arduino plaform:

@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: red-rover
 ---
-
-{% include timeline.html %}

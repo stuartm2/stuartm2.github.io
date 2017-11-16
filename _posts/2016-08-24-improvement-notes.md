@@ -2,6 +2,7 @@
 layout: post
 title: "Improvement Notes"
 tags: [quadx450]
+cover_img: /images/quadx450/cover.tn.jpg
 ---
 
 Following up from my [first post on this project]({% post_url 2016-08-14-x450-quadcopter-status %}), I stumbled across my notes from last October outlining the various issues we'd experienced during the first few flights:

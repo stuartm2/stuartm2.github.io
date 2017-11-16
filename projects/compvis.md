@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: compvis
 ---
-
-{% include timeline.html %}

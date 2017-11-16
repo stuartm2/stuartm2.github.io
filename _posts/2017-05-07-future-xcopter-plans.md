@@ -2,6 +2,7 @@
 layout: post
 title: "Future X-Copter Plans"
 tags: [quadx450]
+cover_img: /images/quadx450/cover.tn.jpg
 ---
 
 On the basis that you can never have too many projects in flight at the same time ...

@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: mpcnc
 ---
-
-{% include timeline.html %}

@@ -2,6 +2,7 @@
 layout: post
 title: "Planned MPCNC Changes"
 tags: [mpcnc]
+cover_img: /images/mpcnc/cover.tn.jpg
 ---
 
 Since I built this router last year, it hasn't really performed as well as I'd hoped.  Aside from some software and communication issues (which I could resolve with a little effort), the main issue has been a lack of rigidity in the central tool mount.  This has made using the router for projects a somewhat uninviting prospect as I tend to spend lots of money on materials like Perspex and fibreglass sheet which then get destroyed by a random kickback from the cutting tool half way through the job.  I've let the situation ride for a while but now I want to work on something which is going to require reliability from my router so it needs sorting.

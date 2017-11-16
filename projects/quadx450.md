@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: quadx450
 ---
-
-{% include timeline.html %}

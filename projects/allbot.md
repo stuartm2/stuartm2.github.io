@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: allbot
 ---
-
-{% include timeline.html %}

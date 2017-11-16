@@ -1,6 +1,4 @@
 ---
-layout: default
+layout: project
 tag: prusa-i2
 ---
-
-{% include timeline.html %}
