@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "MeArm Robotic Arm"
 ---
 
 {% assign tag="mearm" %}
