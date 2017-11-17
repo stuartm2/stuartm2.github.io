@@ -18,7 +18,7 @@ title: "Projects"
         <a href="projects/{{ tag }}.html">
             <img src="/images/{{ tag }}/cover.tn.jpg" height="200" class="img-responsive">
             <h3>{{ project.title }}</h3>
-            <div><small>Last update: {{ tag.first.date | date_to_long_string }}</small></div>
+            <div><small>Last update: {{ site.tags[tag].first.date | date_to_long_string }}</small></div>
         </a>
     </div>
         {% if i == '2' %}
