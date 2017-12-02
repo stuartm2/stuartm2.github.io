@@ -129,14 +129,6 @@ A useful note for getting Serial-over-Bluetooth running in Ubuntu which might pr
 
 Yes, it really is that simple.  No need to install Blueman or any of the other stuff you might read elsewhere on the Internet.
 
-## Notes on Nucleo Programming
-
-In order to use the Bluetooth serial module, the serial port on the Nucleo needs to be reassigned from the STLink programmer to the Arduino pins by changing some solder jumpers on the underside of the board.  The details of these changes are in the user documents and in the ST32Duino repository so I won't repeat them here, however, the changes alter the way the board is programmed.
-
-First, the Bluetooth module needs to be disconnected and the Arduino TX and RX pins connected to the respective pins on the STLink programmer part of the board.  Next, because the board has been configured for external power, it needs to be connected to the battery before it can be programmed.  Finally, the USB can be connected and the board programmed.  Here are the connections:
-
-![](/images/rosbot/IMG_0425.tn.jpg)
-
 ## Conclusion
 
 It's taken some time to get here but it's very satisfying to have worked through all of these problems and finally have a working robot base.  In hindsight, what's going on in the robot base code isn't overly complicated and a lot of the trouble I've had has been because of my lack of understanding - first of the interactions within ROS itself and, more recently, of the limits of the 8-bit Arduino platform.  Reading got me over the former and switching to a 32-bit board, the latter.  I have no doubt it's possible to get something working with an 8-bit board, much as I'm sure it's possible to use the original low-resolution wheel encoders with ROS, and I may revisit both of those in the future to further my knowledge but, for now, I'll stick with what's working so I can learn more about the advanced control and navigation features in ROS.
