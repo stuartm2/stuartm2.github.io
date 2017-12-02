@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ROS Software - Robot Moves"
+short_title: "ROS Setup"
 tags: [rosbot]
 ---
 

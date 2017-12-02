@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Start of ROS 2-Wheeled Robot"
+short_title: "Initial Build"
 tags: [rosbot]
 ---
 
