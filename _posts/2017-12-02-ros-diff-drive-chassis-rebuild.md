@@ -24,13 +24,13 @@ A lot has changed so let's dive in and take a closer look.
 
 ## Chassis Layout
 
-I had a major rethink of the component layout.  The base controller board, motor driver and front sensors remain on top of the main chassis plate but I've made a new top plate, hand-cut from 4mm acrylic sheet, to hold the comms and other sensor/output modules.  There's also space for a Raspberry Pi at the front of the top plate in future.  I rearranged the wheels to improve stability as the robot was prone to tipping under sharp deceleration.  The drive wheels are now at the back of the chassis and the caster has moved to the front leaving plenty of space in the middle for a good-sized battery.  Here are the two plates:
+I had a major rethink of the component layout.  The base controller board, motor driver and front sensors remain on top of the main chassis plate but I've made a new top plate, hand-cut from 4mm acrylic sheet, to hold the comms and other sensor/output modules.  There's also space for a Raspberry Pi at the front of the top plate for future use.  I rearranged the wheels to improve stability as the robot was prone to tipping under sharp deceleration.  The drive wheels are now at the back of the chassis and the caster has moved to the front leaving plenty of space in the middle for a good-sized battery.  Here are the two plates:
 
 ![](/images/rosbot/IMG_0404.tn.jpg)
 
 ## Power
 
-It was obvious that the 6xAA battery pack on the original configuration wasn't going to be up to the job of powering the motors and various electronic components.  In its place I'm temporarily using a 850mAH 3S LiPo battery (as seen in the photos) but this will be replaced by a 2200mAH 3S LiPo battery which should have plenty of capacity for the current configuration as well as for future expansion.  The 12V of the 3-cell battery is stepped-down to 7.2V with an adjustable switching regulator ensuring, after the voltage drop of the motor driver regulator, that the motors get the 6V they need.  The motor driver's regulated 5V output supplies power to the base controller board.
+It was obvious that the 6xAA battery pack on the original configuration wasn't going to be up to the job of powering the motors and various electronic components.  In its place I'm temporarily using an 850mAH 3S LiPo battery (as seen in the photos) but this will be replaced by a 2200mAH 3S LiPo battery which should have plenty of capacity for the current configuration as well as for future expansion.  The 12V of the 3-cell battery is stepped-down to 7.2V with an adjustable switching regulator ensuring, after the voltage drop of the motor driver regulator, that the motors get the 6V they need.  The motor driver's regulated 5V output supplies power to the base controller board.
 
 ## Motors/Encoders
 
@@ -81,7 +81,7 @@ The on-board encoder driver code in the base library is specifically designed fo
         [...]
     }
 
-The test was successful so I purchased a new STMicro Nucleo F103RB board with Arduino-compatible headers, hooked everything up more permanently and topped it off with a Grove Arduino shield (I'm having a bit of a Grove love-in at the moment).  The 32-bit board brings a number of advantages beyond faster processing: it has interrupts on every pin (avoiding one of the biggest shortcomings of the 8-bit Arduino boards) and a large number of GPIO pins beyond the regular Arduino offerings, meaning I can assign motor driver duties to non-Arduino pins, leaving more room for sensors on the Grove shield.
+The test was successful so I purchased a new STMicro Nucleo F103RB board with Arduino-compatible headers, hooked everything up more permanently and topped it off with a Grove Arduino shield (I'm having a bit of a Grove love-in at the moment).  The 32-bit board brings a number of advantages beyond faster processing: it has interrupts on every pin (avoiding one of the biggest shortcomings of the 8-bit Arduino boards) and a large number of GPIO pins beyond the regular Arduino offerings, meaning I can assign motor driver duties to non-Arduino pins.  This will leave more room for connecting sensors on the Grove shield.
 
 ## Motor Driver
 
@@ -118,20 +118,20 @@ One minor disadvantage of the new 32-bit base controller board is that it has fe
 
 ## ROS System and Communications
 
-My original plan was to run ROS on a Raspberry Pi mounted to the chassis.  I may eventually return to that plan but, to make development easier, I'm currently running ROS in an Ubuntu VM on my laptop and communicating with the base controller using Bluetooth.  This seems to work well and allows me to take advantage of the much greater processing power of my laptop as well as a more convenient development workflow with direct access to the ROS code on my main development system.
+My original plan was to run ROS on a Raspberry Pi mounted to the chassis.  I may eventually return to that plan but, to make development easier, I'm currently running ROS in an Ubuntu VM on my laptop and communicating with the base controller via Bluetooth.  This seems to work well and allows me to take advantage of the much greater processing power of my laptop as well as providing a more convenient development workflow with direct access to the ROS code on my main system.
 
 A useful note for getting Serial-over-Bluetooth running in Ubuntu which might prove useful to other people (I went down a few wrong paths before I eventually found this solution):
 
     me@ubuntu:~$ sudo hcitool scan
     Scanning ...
     {hex_device_addr} device_name 000000
-    me@ubuntu:~$ sudo rfcomm bind /dev/rfcomm{0} {hex_device_addr} 1
+    me@ubuntu:~$ sudo rfcomm bind /dev/rfcomm{number} {hex_device_addr} 1
 
-Yes, it really is that simple.  No need to install Blueman or any of the other stuff you might read elsewhere on the Internet.
+Yes, it really is that simple - just replace the contents of the curly braces with appropriate values.  No need to install Blueman or any of the other stuff you might read elsewhere on the Internet.
 
 ## Conclusion
 
-It's taken some time to get here but it's very satisfying to have worked through all of these problems and finally have a working robot base.  In hindsight, what's going on in the robot base code isn't overly complicated and a lot of the trouble I've had has been because of my lack of understanding - first of the interactions within ROS itself and, more recently, of the limits of the 8-bit Arduino platform.  Reading got me over the former and switching to a 32-bit board, the latter.  I have no doubt it's possible to get something working with an 8-bit board, much as I'm sure it's possible to use the original low-resolution wheel encoders with ROS, and I may revisit both of those in the future to further my knowledge but, for now, I'll stick with what's working so I can learn more about the advanced control and navigation features in ROS.
+It's taken some time to get here but it's very satisfying to have worked through all of these problems and finally have a working robot base.  In hindsight, what's going on in the robot base code isn't overly complicated and a lot of the trouble I've had has been because of my lack of understanding - first of the interactions within ROS itself and, more recently, of the limits of the 8-bit Arduino platform.  Reading got me over the former and switching to a 32-bit board, the latter.  I have no doubt it's possible to get something working with an 8-bit board, much as I'm sure it's possible to use the original low-resolution wheel encoders with ROS but I'm going to stick with what's working so I can learn more about the advanced control and navigation features in ROS.
 
 I can now get on with attaching sensors and exploring ROS in more depth so expect more post on this project soon.  Here's a photo of the finished base:
 
