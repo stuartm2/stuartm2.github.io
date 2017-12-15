@@ -2,7 +2,7 @@
 layout: post
 title: "RGB LED Fun"
 tags: [random]
-cover_img: /draft_images/random/cover.rgb-led-fun.jpg
+cover_img: /images/random/cover.rgb-led-fun.jpg
 ---
 
 I recently bought some new toys: an Adafruit Feather M0 Express to play with Circuit/MicroPython and a Pimoroni Unicorn Hat to experiment with some ideas I'd had about visual notifications.  I decided to put the two together in what started out as a simple test but quickly became a lesson in binary image files.
@@ -11,7 +11,7 @@ I recently bought some new toys: an Adafruit Feather M0 Express to play with Cir
 
 The Unicorn Hat uses WS2812 LEDs (aka. NeoPixels) so only requires three connections: signal, 5V and ground.  These can be hooked-up via the GPIO connector or with a separate, unsoldered 3 pin header.  Any digital pin on the Feather should work to provide the signal; I chose D6 for no particular reason.  Here's the circuit:
 
-![](/draft_images/random/rgb-led-matrix-circuit_.jpg)
+![](/images/random/rgb-led-matrix-circuit_.jpg)
 
 ## Code
 
@@ -29,7 +29,7 @@ Defining full-colour images in the code, however, is a very long and tedious tas
 
 The Wikipedia article on the BMP file format contains everything you'd need to know to write a simple reader.  I started by creating a sample 8x8 pixel, 24-bit colour BMP file to match the specs of the Unicorn Hat.  It looked like this, only much smaller:
 
-![](/draft_images/random/led-matrix-test-image_.gif)
+![](/images/random/led-matrix-test-image_.gif)
 
 Opening the file in a binary viewer reveals quite a simple format:
 
@@ -97,7 +97,7 @@ We have our raw pixel data from the BMP file with each pixel stored as 3 separat
 
 Well, yes and no.  This code will certainly cause the Unicorn Hat to display the image but the pixels will be a bit jumbled up because the BMP file stores pixels in a particular order and the Unicorn Hat arranges its LEDs in a completely different order, as this image shows:
 
-![](/draft_images/random/rgb-led-matrix-pixel-order_.jpg)
+![](/images/random/rgb-led-matrix-pixel-order_.jpg)
 
 By popping the image data from the array, we've inadvertently fixed the problem of it being upside-down but, because the image data is also stored left-to-right, we've reversed that too, so the LED rows which run left-to-right are reversed.  To resolve this properly, we're going to approach the problem in two stages.  First, let's shape the image data into a multi-dimensional array of rows and columns running left-to-right and top-to-bottom.
 
@@ -126,7 +126,7 @@ Now we can send the data to the Unicorn Hat, reversing the even-numbered rows so
             pixels[i] = pixel_grid[row][col]
             i += 1
 
-![](/draft_images/random/IMG_0435.tn.jpg)
+![](/images/random/IMG_0435.tn.jpg)
 
 Success!!
 
@@ -177,10 +177,10 @@ With everything working, I decided to build a little case for the whole unit to 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <img src="/draft_images/random/IMG_0397.tn.jpg">
+            <img src="/images/random/IMG_0397.tn.jpg">
         </div>
         <div class="col-md-6">
-            <img src="/draft_images/random/IMG_0398.tn.jpg">
+            <img src="/images/random/IMG_0398.tn.jpg">
         </div>
     </div>
 </div>
