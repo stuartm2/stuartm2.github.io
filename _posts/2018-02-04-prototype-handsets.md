@@ -69,7 +69,7 @@ For the code I used the LowPower library to put the handset into permanent sleep
         LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF);
     }
 
-In my first real-world test, I forgot to put the radio to sleep and the battery was drained by the following week.  The addition of the `radio.sleep()` call seems to have solved the problem with the handsets running on the same batteries for 5 weeks and counting at the time of writing.  I have subsequently added a 100uF electrolytic capacitor to avoid problems with the radio spiking with too much current on waking.
+In my first real-world test, I forgot to put the radio to sleep and the battery was drained by the following week.  The addition of the `radio.sleep()` call seems to have solved the problem with the handsets running on the same batteries for 5 weeks and counting at the time of writing.  I have subsequently added a 10uF electrolytic capacitor to avoid problems with the radio spiking with too much current on waking.
 
 ## Electronics
 
@@ -99,6 +99,7 @@ ___
 
 ## Resources
 
+ * Low power Pro Mini: [MySensors.org](https://www.mysensors.org/build/battery)
  * Handset code: [Github](https://github.com/stuartm2/Badminton_Score_Counter/blob/master/Handset/Handset.ino)
  * Main case model: [OnShape](https://cad.onshape.com/documents/9463e5157db93fdbf6d9a7e5/w/a9a7750a943b007c62ad2b1e/e/a760306ca2e30b597106d3ec)
  * Case cap model: [OnShape](https://cad.onshape.com/documents/8bd2d49c5b04aa00eb9dc53d/w/7b6237f4b6db241d122c982a/e/bd9d7ec41a28edbf4da3b4e6)
