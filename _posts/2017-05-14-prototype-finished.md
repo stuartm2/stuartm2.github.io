@@ -14,7 +14,7 @@ The main unit counts scores with increment and decrement buttons on the unit for
 
 Due to not having enough pins to have a separate input for each increment and decrement button, I've used a potential divider to put each team's increment and decrement buttons on a single analog pin.  By default, the output is at +V/2; pressing the decrement button takes output close to ground and pressing the increment button takes it close to +V.  Here's what that part of the circuit looks like:
 
-![](/images/badscore/sch-sw.png)
+![](/images/badscore/sch-sw_.png)
 
 and here's the code (in this case, for the green team):
 
