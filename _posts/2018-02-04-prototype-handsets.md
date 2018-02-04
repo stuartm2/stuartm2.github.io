@@ -27,7 +27,7 @@ In the original version, the team for each handset was set as a constant in the 
     void setup() {
         radio.initialize(FREQUENCY, MYNODEID, NETWORKID);
 
-This meant that each handset's firmware needed to be modified and compiled individually, which isn't ideal.  To avoid this in the final units I defined a digital pin as team selector, connected this pin on one of the handsets to ground and then detected this state in the code at runtime to set the team:
+This meant that each handset's firmware needed to be modified and compiled individually, which isn't ideal.  To avoid this in the final units I defined a digital pin as team selector, connected this pin on one of the handsets to ground and then detected the state in the code at runtime to set the team:
 
     void setup() {
         int myNodeId = 1;
@@ -41,11 +41,11 @@ This meant that each handset's firmware needed to be modified and compiled indiv
 
 ## Power
 
-I had some trouble deciding between a non-rechargeable 2032 lithium "coin" cell and a small, rechargeable li-ion cell.  The advantage of the latter is the ability to recharge the units, but I was concerned that the additional charging and regulation circuitry would make the handsets too bulky.  Conversely, while coin cells would be more compact and safe to connect directly to the RFM modules, they could be far more expensive in the long-term if they discharge too quickly in use.
+I had some trouble deciding between a non-rechargeable 2032 lithium "coin" cell and a small, rechargeable li-ion cell.  The advantage of the latter is the ability to recharge the units but I was concerned that the additional charging and regulation circuitry would make the handsets too bulky.  Conversely, while coin cells would be more compact and safe to connect directly to the RFM modules, they could be far more expensive in the long-term if they discharge too quickly in use.
 
 There's some good information about running Arduinos for long periods on coin cells so I decided to start with this option but to make the power supply a separate module so I could change my mind if it didn't work out after a few months of use.
 
-The 3.3V/8MHz Arduino Pro Mini is an ideal off-the-shelf starting point for a low-power device like this but it does need a few modifications to make it really efficient.  I won't reiterate those modifications here but links are in the References section, below, for anyone who's interested.
+The 3.3V/8MHz Arduino Pro Mini is an ideal off-the-shelf starting point for a low-power device like this but it does need a few modifications to make it really efficient.  I won't repeat those modifications here but links are in the References section, below, for anyone who's interested.
 
 For the code I used the LowPower library to put the handset into permanent sleep, waking only when the button is pressed:
 
@@ -69,11 +69,11 @@ For the code I used the LowPower library to put the handset into permanent sleep
         LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF);
     }
 
-In my first real-world test, I forgot to put the radio to sleep and the battery was drained by the following week.  The addition of the `radio.sleep()` call seems to have solved the problem with the handsets running on the same batteries for 5 weeks and counting at the time of writing.  I have subsequently added a 10uF electrolytic capacitor to avoid problems with the radio spiking with too much current on waking.
+The extra sleep at the end of the loop ensures a suitable delay between detecting a button press and listening for the next one.  In my first real-world test, I forgot to put the radio to sleep and the battery was drained by the following week.  The addition of the `radio.sleep()` call seems to have solved the problem with the handsets running on the same batteries for 5 weeks and counting at the time of writing.  I have subsequently added a 10uF electrolytic capacitor to avoid problems with the radio drawing with too much current on waking.
 
 ## Electronics
 
-The circuit is very simple - just an Arduino, the battery, radio module, an LED and a tactile switch.  On a side note: this was the last time I used my old soldering iron - the tip was so large and the work so fiddly that is was like doing brain surgery while wearing boxing gloves.
+The circuit is very simple - just an Arduino, the battery, radio module, an LED and a tactile switch.  On a side note: this was the last time I used my old soldering iron - the tip was so large and the work so fiddly that it was like doing brain surgery while wearing boxing gloves.
 
 ![](/images/badscore/IMG_0394.tn.jpg)
 
@@ -83,7 +83,7 @@ There's a small piece of stripboard securely soldered to one end of the Pro Mini
 
 ## Case
 
-I designed a small case to be 3D printed.  It features a flexible cutout area over the tactile switch on the board, a cutout for the Arduino's reset button on the back and slots for an elasticated armband which I purchased from Amazon.  It's printed in two halves, has some tapered blocks to ensure good alignment and is secured with small self-tapping screws.  Here's a photo of both halves alongside an assembled unit:
+I designed a small 3D-printed case.  It features a flexible cutout area over the tactile switch on the board, a cutout for the Arduino's reset button on the back and slots for an elasticated armband which I purchased from Amazon.  It's printed in two halves, has some tapered blocks to ensure good alignment and is secured with small self-tapping screws.  Here's a photo of both halves alongside an assembled unit:
 
 ![](/images/badscore/IMG_0396.tn.jpg)
 
