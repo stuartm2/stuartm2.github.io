@@ -8,6 +8,9 @@ badscore:
 compvis:
     title: "Computer Vision"
 
+cnc-router:
+    title: "CNC Router"
+
 hexapod:
     title: "Hexapod"
 
