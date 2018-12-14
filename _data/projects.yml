@@ -37,6 +37,7 @@ random:
 
 red-rover:
     title: "Land Rover Restoration"
+    archive: true
 
 rosbot:
     title: "ROSbot"
