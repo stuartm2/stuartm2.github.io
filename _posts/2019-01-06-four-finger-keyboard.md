@@ -217,3 +217,4 @@ ___
  * Thingiverse: [4-finger keyboard case](https://www.thingiverse.com/thing:3346343)
  * Thingiverse: [Cherry MX keycaps (type: DSA)](https://www.thingiverse.com/thing:2783650)
  * Github: [Arduino code](https://github.com/stuartm2/4-finger-keyboard)
+ * Sparkfun: [Pro Micro USB keyboard tutorial](https://www.sparkfun.com/tutorials/337)
