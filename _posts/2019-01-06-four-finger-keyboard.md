@@ -1,7 +1,9 @@
 ---
 layout: post
-title: "4-Finger Keyboard"
+title: "Four Finger Keyboard"
+short_title: "4-Finger Keyboard"
 tags: [random]
+cover_img: /images/random/cover.4-finger-keyboard.jpg
 ---
 
 I've been a bit of a sucker for obscure and novelty keyboards ever since, as a child, I marvelled at a photo of an ergonomic Dvorak keyboard in a technology annual.  In a recent Google "rabbit hole" session, I stumbled across the [Kee4™ keyboard by Citta Consulting Inc.](http://kee4.com) and, after playing with their Javascript demo for a while, decided to make my own as a fun project over the New Year break.  The basic premise of this minimalist keyboard is that characters are typed using a combination of 1 or 2-finger keypress sequences.  To really understand it, I encourage you to read their site and try the online demo.
